@@ -28,6 +28,6 @@ optional arguments:
 
 **License**
 
-@HIT Biomimicry Course@
+@ HIT Biomimicry Course @
 
 Or Moradian and Yuval Pruss
