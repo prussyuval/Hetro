@@ -1,8 +1,11 @@
 ***Heterogeneous Cluster***
 
+Heterogeneous Cluster is an extensible multi-core server manager to consume varous tasks 
+and mimic the human digestive system
+
 **Producer**
 
-Produce variety of tasks to be consumed by the Heterogeneous Cluster. 
+Produce variety of tasks to be consumed by the Heterogeneous Cluster.
 
 ```
 usage: producer/main.py
