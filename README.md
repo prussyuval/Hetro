@@ -1,5 +1,10 @@
 ***Heterogeneous Cluster***
 
+**License**
+
+HIT Biomimicry Course
+Or Moradian and Yuval Pruss
+
 **Producer**
 
 Produce variety of tasks to be consumed by the Heterogeneous Cluster. 
