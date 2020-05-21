@@ -12,7 +12,8 @@ usage: producer/main.py
 
 Consume tasks from TASK_TYPE and remove them from the queue
 
-```usage: consumer/main.py [-h] -t TASK_TYPE -f FILE_NAME
+```
+usage: consumer/main.py [-h] -t TASK_TYPE -f FILE_NAME
 
 optional arguments:
   -h, --help            show this help message and exit
