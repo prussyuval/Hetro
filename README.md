@@ -1,4 +1,4 @@
-***Heterogeneous Cluster***
+<h1>Heterogeneous Cluster</h1>
 
 Heterogeneous Cluster is an extensible multi-core server manager to consume various tasks 
 and mimic the human digestive system.
