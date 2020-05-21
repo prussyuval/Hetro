@@ -1,7 +1,7 @@
 ***Heterogeneous Cluster***
 
-Heterogeneous Cluster is an extensible multi-core server manager to consume varous tasks 
-and mimic the human digestive system
+Heterogeneous Cluster is an extensible multi-core server manager to consume various tasks 
+and mimic the human digestive system.
 
 **Producer**
 
@@ -13,7 +13,7 @@ usage: producer/main.py
 
 **Consumer**
 
-Consume tasks from TASK_TYPE and remove them from the queue
+Consume tasks from TASK_TYPE and remove them from the queue.
 
 ```
 usage: consumer/main.py [-h] -t TASK_TYPE -f FILE_NAME
