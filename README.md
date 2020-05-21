@@ -1,10 +1,5 @@
 ***Heterogeneous Cluster***
 
-**License**
-
-HIT Biomimicry Course
-Or Moradian and Yuval Pruss
-
 **Producer**
 
 Produce variety of tasks to be consumed by the Heterogeneous Cluster. 
@@ -27,3 +22,8 @@ optional arguments:
   -f FILE_NAME, --file FILE_NAME, --file_name FILE_NAME
                         File name to consume tasks from
 ```
+
+**License**
+
+HIT Biomimicry Course
+Or Moradian and Yuval Pruss
