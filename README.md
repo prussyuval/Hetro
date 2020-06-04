@@ -8,7 +8,12 @@ and mimic the human digestive system.
 Produce variety of tasks to be consumed by the Heterogeneous Cluster.
 
 ```
-usage: producer/main.py
+usage: main.py [-h] -f FILE_NAME
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FILE_NAME, --file FILE_NAME, --file_name FILE_NAME
+                        File name to consume tasks from
 ```
 
 **Consumer**
