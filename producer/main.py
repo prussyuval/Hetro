@@ -1,4 +1,6 @@
+import argparse
 import base64
+import os
 import random
 import string
 from pprint import pprint
@@ -12,8 +14,13 @@ from typing import Any
 
 import requests
 
+from utils.color_log import print_colorful_log, TASK_TYPE_TO_COLOR, print_start_color, print_done_color, ColorText
 from schema.task_type import TaskType
 from tasks.task import Task
+
+
+class FileNotExistsException(Exception):
+    pass
 
 
 class Producer:
@@ -28,6 +35,13 @@ class Producer:
     def _get_ip_address():
         return requests.get('http://ident.me/').text
 
+    @staticmethod
+    def _log_task(task: dict) -> None:
+        print_colorful_log('Produce task:', color=ColorText.BOLD)
+        print_start_color(TASK_TYPE_TO_COLOR[task['type']])
+        pprint(task)
+        print_done_color()
+
     def create_task(self, task_type: TaskType, content: Any):
         content_str = self.dump_content(content)
 
@@ -37,14 +51,23 @@ class Producer:
                            creation_time=datetime.utcnow()))
 
         file = open(self.file_name, 'a')
-        print('Produce task:')
-        pprint(task)
+        self._log_task(task)
         file.write(f'{json.dumps(task, default=json_util.default)}\n')
         file.close()
 
 
 if __name__ == '__main__':
-    producer = Producer(r'C:\Users\pruss\Desktop\tasks.txt')
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--file", "--file_name",
+                        dest="file_name",
+                        help="File name to consume tasks from",
+                        required=True)
+    args = parser.parse_args()
+
+    if not os.path.exists(args.file_name):
+        raise FileNotExistsException(f"File name {args.file_name} doesn't exists")
+
+    producer = Producer(file_name=args.file_name)
     while True:
         task_type = random.choice([TaskType.IO, TaskType.RAM, TaskType.CPU])
         content = dict(image=base64.b64encode(

@@ -8,6 +8,7 @@ from typing import Tuple, Optional
 from bson import json_util
 from time import sleep
 
+from utils.color_log import print_colorful_log, TASK_TYPE_TO_COLOR, print_start_color, print_done_color
 from schema.task_type import TaskType
 from tasks.task import Task
 
@@ -49,9 +50,15 @@ class Consumer:
 
         self.process_task(task, line_number)
 
-    def process_task(self, task: Task, line_number: int):
-        print(f'Consume task:')
+    @staticmethod
+    def _log_consumed_task(task: Task) -> None:
+        print_colorful_log(f'Consuming task: {task.type}', color=TASK_TYPE_TO_COLOR[task.type])
+        print_start_color(TASK_TYPE_TO_COLOR[task.type])
         pprint(asdict(task))
+        print_done_color()
+
+    def process_task(self, task: Task, line_number: int):
+        self._log_consumed_task(task)
         self._remove_task_line(line_number)
 
     def _remove_task_line(self, line_number: int):
